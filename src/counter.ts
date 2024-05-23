@@ -1,6 +1,7 @@
 import axios from "axios"
 import { pokemonIds } from "./bases/02-structure"
 import { PokeapiResponse } from "./interfaces/pokeapi-response.interfaces"
+import { Move } from "./interfaces/pokeapi-response.interfaces"
 
 export function setupCounter(element: HTMLButtonElement) {
   let counter = 0
@@ -19,9 +20,9 @@ export class Pokemon {
   constructor(public id: number, public name: string) {}
   
   
-  async getmoves(){
+  async getmoves(): Promise<Move[]>{
     const {data} = await axios.get<PokeapiResponse>(`https://pokeapi.co/api/v2/pokemon/4`)
-    console.log(data.moves)
+    console.log(data.moves[0].move)
 
     return data.moves
 
