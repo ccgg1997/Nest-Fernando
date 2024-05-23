@@ -12,9 +12,17 @@ export class Pokemon {
       return data.moves
   
     }
+
+    scream(){
+        return this.name + '!!!!!'
+    }
+
+    speak(){
+        console.log('Hi, my name is ' + this.name)
+    }
+
   
   }
   
   export const charmander = new Pokemon(4,'charmander')
-  
-  charmander.getmoves()
+  console.log(charmander.scream())
